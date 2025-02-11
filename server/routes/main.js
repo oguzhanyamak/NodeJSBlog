@@ -53,6 +53,7 @@ router.post("/search", async (req, res) => {
     };
 
     let searchTerm = req.body.searchTerm;
+    // Özel karakterleri kaldırarak güvenli bir arama terimi oluşturuyoruz
     const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "");
 
     const data = await Post.find({
